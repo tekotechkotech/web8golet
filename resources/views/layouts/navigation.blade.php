@@ -23,6 +23,9 @@
                 <x-nav-link href="{{ route('pelanggan') }}" :active="request()->routeIs('pelanggan')">
                     {{ __('Pelanggan') }}
                 </x-nav-link>
+                <x-nav-link href="{{ route('team') }}" :active="request()->routeIs('team')">
+                    {{ __('Team') }}
+                </x-nav-link>
             </ul>
 
             <!-- Right Side Of Navbar -->

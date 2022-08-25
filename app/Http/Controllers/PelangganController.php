@@ -12,7 +12,7 @@ class PelangganController extends Controller
     {
         $th = ['No', 'Nama Instansi', 'Logo', 'Aksi'];
         
-        $td = Pelanggan::all();
+        $td = Pelanggan::get();
         
         return view('pelanggan', compact('th', 'td'));
     }

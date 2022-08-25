@@ -20,6 +20,7 @@ class CreatePortofolioCategoriesTable extends Migration
             $table->string('deskripsi_kategori');
             $table->string('img');
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }

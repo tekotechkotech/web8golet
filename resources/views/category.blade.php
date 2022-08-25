@@ -9,11 +9,22 @@
         <div class="row">
         @foreach ($data as $data)
       <div class="col col-lg-3 col-sm-12">
-          <div class="card">
-            <div class="card-body">
-              <img src="{{ asset('') }}/img/category/{{ $data->img }}" alt="" width="500px">
-              <h3>{{ $data->nama_kategori }}</h3>
-              <p>{{ $data->deskripsi_kategori }}.</p>
+          <div class="card shadow-sm">
+            <img class="card-img-top" src="{{ asset('') }}assets/gambar/{{ $data->img }}" alt="Card image cap">
+            
+            <div class="card-body ">
+              <h5 class="card-title">{{ $data->nama_kategori }}</h5>
+              <p class="card-text">{{ $data->deskripsi_kategori }}</p>
+            </div>
+            <div class="card-footer mr-auto">
+              
+              <form action="/kategori/hapus/{{ $data->id }}" method="post">
+                @method('delete')
+                @csrf
+                <input type="hidden" name="id" value="{{ $data->id }}">
+                <a href="/kategori/{{ $data->id }}/edit" class="btn btn-dark">Edit</a>
+                <button type="submit" class="btn btn-dark">Hapus</button>
+              </form>
             </div>
           </div>
     </div>

@@ -16,19 +16,25 @@ class CreatePortofoliosTable extends Migration
         Schema::create('portofolios', function (Blueprint $table) {
             $table->id();
 
+            $table->string('slug')->unique();
+
             $table->string('nama_portofolio');
             $table->string('deskripsi_portofolio');
             $table->string('link');
             $table->date('tanggal_pesan');
 
-
             $table->unsignedBigInteger('pelanggan_id');
             $table->foreign('pelanggan_id')->references('id')->on('pelanggans');
 
-
             $table->unsignedBigInteger('categories_id');
             $table->foreign('categories_id')->references('id')->on('portofolio_categories');
+
             
+            $table->string('gambar1')->nullable();
+            $table->string('gambar2')->nullable();
+            $table->string('gambar3')->nullable();
+
+
             $table->softDeletes();
             $table->timestamps();
         });

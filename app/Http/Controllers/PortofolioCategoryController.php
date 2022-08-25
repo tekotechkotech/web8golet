@@ -22,14 +22,29 @@ class PortofolioCategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_kategori' => 'required',
+            'nama_kategori' => 'required|unique:portofolio_categories,nama_kategori',
             'deskripsi_kategori' => 'required',
-            'keterangan' => 'required',
+            'gambar' => 'required',
         ]);
 
-        $data = PortofolioCategory::create($request->all());
+        if ($request->file('gambar')) {
+            $gambar = $validated['gambar'] = $request->file('gambar');
+                // isi dengan nama gambar
+                $nama_gambar = "kategori" .$request->nama_pelanggan. "_" . uniqid() . ".jpg";
+                // isi dengan nama folder tempat kemana file diupload
+                $tempat ="assets/gambar/";
+                $gambar->move($tempat,$nama_gambar);
 
-        return redirect('/kategori_portofolio')->with('status', 'Data berhasil ditambahkan!');
+        }else{
+            dd('gambar salah');
+        }
+
+        PortofolioCategory::create([
+            'nama_kategori' => $request->nama_kategori,
+            'deskripsi_kategori' => $request->deskripsi_kategori,
+            'img' => $nama_gambar,
+        ]);
+        return redirect('/kategori')->with('status', 'Data berhasil ditambahkan!');
     }
 
     public function edit($id)
@@ -40,17 +55,35 @@ class PortofolioCategoryController extends Controller
 
     public function update(Request $request, $id)
     {
+        // dd($request);
         $request->validate([
-            'nama_kategori' => 'required',
-            'keterangan' => 'required',
+            'nama_kategori' => 'nullable|unique:portofolio_categories,nama_kategori,'.$id.',id',
+            'deskripsi_kategori' => 'nullable',
+            'gambar' => 'nullable',
         ]);
-
+        
+        
         $data = PortofolioCategory::find($id);
         $data->nama_kategori = $request->nama_kategori;
-        $data->keterangan = $request->keterangan;
+        $data->deskripsi_kategori = $request->deskripsi_kategori;
         $data->save();
 
-        return redirect('/kategori_portofolio')->with('status', 'Data berhasil diubah!');
+        if ($request->file('gambar')) {
+            $gambar = $validated['gambar'] = $request->file('gambar');
+                // isi dengan nama gambar
+                $nama_gambar = "kategori_" .$request->nama_kategori. "_" . uniqid() . ".jpg";
+                // isi dengan nama folder tempat kemana file diupload
+                $tempat ="assets/gambar/";
+                $gambar->move($tempat,$nama_gambar);
+
+                $data = PortofolioCategory::find($id);
+                $data->img = $nama_gambar;
+                $data->save();
+                
+        }
+
+
+        return redirect('/kategori')->with('status', 'Data berhasil diubah!');
     }
 
     public function destroy($id)
@@ -58,7 +91,7 @@ class PortofolioCategoryController extends Controller
         $data = PortofolioCategory::find($id);
         $data->delete();
 
-        return redirect('/kategori_portofolio')->with('status', 'Data berhasil dihapus!');
+        return redirect('/kategori')->with('status', 'Data berhasil dihapus!');
     }
 
 }

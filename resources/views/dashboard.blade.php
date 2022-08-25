@@ -7,7 +7,10 @@
 
     <div class="card my-4">
         <div class="card-body">
-            You're logged in!
+                Selamat datang, You're logged in!
+                <a href="portofolio" class="btn btn-dark  float-end mx-1">Portofolio</a>
+                <a href="pelanggan" class="btn btn-dark  float-end mx-1">Pelanggan</a>
+                <a href="kategori" class="btn btn-dark float-end mx-1">Kategori</a>
         </div>
     </div>
 </x-app-layout>

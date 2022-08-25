@@ -19,6 +19,7 @@ class CreatePelanggansTable extends Migration
             $table->string('nama_pelanggan');
             $table->string('gambar');
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }

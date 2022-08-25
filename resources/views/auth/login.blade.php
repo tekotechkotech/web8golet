@@ -13,7 +13,7 @@
             <!-- Validation Errors -->
             <x-auth-validation-errors class="mb-3" :errors="$errors" />
 
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('sok') }}">
                 @csrf
 
                 <!-- Email Address -->

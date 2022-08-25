@@ -28,6 +28,7 @@
                     </div>
                 @enderror
             </div>
+            <a href="/portofolio" class="btn btn-dark my-2 ml-auto">Kembali</a>
             <button type="submit" class="btn btn-dark my-2">Submit</button>
         </form>
             
