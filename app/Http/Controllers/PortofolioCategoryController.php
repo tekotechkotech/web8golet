@@ -57,8 +57,8 @@ class PortofolioCategoryController extends Controller
     {
         // dd($request);
         $request->validate([
-            'nama_kategori' => 'nullable|unique:portofolio_categories,nama_kategori,'.$id.',id',
-            'deskripsi_kategori' => 'nullable',
+            'nama_kategori' => 'required|unique:portofolio_categories,nama_kategori,'.$id.',id',
+            'deskripsi_kategori' => 'required',
             'gambar' => 'nullable',
         ]);
         

@@ -66,30 +66,39 @@ class TeamController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_pelanggan' => 'nullable',
-            'gambar' => 'nullable',
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'deskripsi' => 'required',
+            'twitter' => 'nullable|url',
+            'facebook' => 'nullable|url',
+            'instagram' => 'nullable|url',
+            'linkedin' => 'nullable|url',
         ]);
-        // dd($request);
         
-        $data = Team::find($id);
-        $data->nama_pelanggan = $request->nama_pelanggan;
-        $data->save();
+        Team::where('id',$id)->update([
+            'nama' => $request->nama,
+            'jabatan' => $request->jabatan,
+            'tulisan' => $request->deskripsi,
+            'twit' => $request->twitter,
+            'fb' => $request->facebook,
+            'ig' => $request->instagram,
+            'linkdin' => $request->linkedin,
+        ]);
 
         if ($request->file('gambar')) {
             $gambar = $validated['gambar'] = $request->file('gambar');
                 // isi dengan nama gambar
-                $nama_gambar = "client_" .$request->nama_pelanggan. "_" . uniqid() . ".jpg";
+                $nama_gambar = "team_" .$request->nama. "_" . uniqid() . ".jpg";
                 // isi dengan nama folder tempat kemana file diupload
                 $tempat ="assets/gambar/";
                 $gambar->move($tempat,$nama_gambar);
 
-                
-                $data = Team::find($id);
-                $data->gambar = $nama_gambar;
-                $data->save();
+                Team::where('id',$id)->update([
+                    'img' => $nama_gambar,
+                ]);
                 
         }
-        return redirect('/pelanggan')->with('status', 'Data berhasil diubah!');
+        return redirect('/team')->with('status', 'Data berhasil diubah!');
     }
 
     public function destroy(Request $request)
@@ -97,7 +106,7 @@ class TeamController extends Controller
         $data = Team::find($request->id);
         $data->delete();
 
-        return redirect('/pelanggan')->with('status', 'Data berhasil dihapus!');
+        return redirect('/team')->with('status', 'Data berhasil dihapus!');
     }
 
 }

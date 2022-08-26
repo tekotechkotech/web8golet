@@ -8,7 +8,7 @@
     <div class="card my-4">
         <div class="card-body">
   
-          <form action="store" method="post" enctype="multipart/form-data">
+          <form action="update/{{ $data->id }}" method="post" enctype="multipart/form-data">
               @csrf
               
               <div class="form-group my-1">

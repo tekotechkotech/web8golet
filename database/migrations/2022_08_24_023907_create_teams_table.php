@@ -19,7 +19,7 @@ class CreateTeamsTable extends Migration
 
             $table->string('nama');
             $table->string('jabatan');
-            $table->string('tulisan');
+            $table->longText('tulisan');
 
             
             $table->string('twit')->nullable();

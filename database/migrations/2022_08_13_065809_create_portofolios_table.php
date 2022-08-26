@@ -19,7 +19,7 @@ class CreatePortofoliosTable extends Migration
             $table->string('slug')->unique();
 
             $table->string('nama_portofolio');
-            $table->string('deskripsi_portofolio');
+            $table->longText('deskripsi_portofolio');
             $table->string('link');
             $table->date('tanggal_pesan');
 

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>FlexStart Bootstrap Template - Index</title>
+    <title>PT Golet Digital Solusi @yield('tittle')</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -72,14 +72,15 @@
     <i class="fa fa-whatsapp ngambangku"></i>
     </a>
     
-    <a href="https://wa.me/6281212176060" class="ngambang ig" target="_blank">
+    <a href="https://www.instagram.com/goletsolusi/" class="ngambang ig" target="_blank">
     <i class="fa fa-instagram ngambangku"></i>
     </a>
     
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    {{-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <span class="instagram">
   <span class="fa fa-instagram"></span>
-</span>
+</span> --}}
+
 </body>
 
 </html>

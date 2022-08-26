@@ -1,5 +1,7 @@
 @extends('web.template.main')
 
+@section('tittle',$porto->nama_portofolio)
+
 @section('main')
     
     <main id="main">

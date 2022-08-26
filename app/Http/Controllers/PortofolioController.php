@@ -114,10 +114,10 @@ class PortofolioController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_portofolio' => 'nullable',
-            'slug' => 'nullable',
-            'link' => 'nullable',
-            'deskripsi_portofolio' => 'nullable',
+            'nama_portofolio' => 'required',
+            'slug' => 'required',
+            'link' => 'required',
+            'deskripsi_portofolio' => 'required',
         ]);
         $porto = Portofolio::find($id);
         $porto->update([

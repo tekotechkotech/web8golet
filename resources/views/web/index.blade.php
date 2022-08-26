@@ -1,5 +1,7 @@
 @extends('web.template.main')
 
+{{-- @section('tittle','Welcome') --}}
+
 @section('main')
     
 
@@ -39,7 +41,7 @@
                     <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
                         <div class="content">
                             <h3>PT Golet Digital Solusi</h3>
-                            <h2>Mitra developer sistem digital berdomisili di Kabupaten Cilacap.</h2>
+                            <h2>Mitra developer sistem digital berdomisili   di Kabupaten Cilacap.</h2>
                             <p>
                                 Semangat berkembang untuk menjadi lebih baik setiap hari. Tim yang solid menuju kesuksesan bersama.
                             </p>
@@ -113,7 +115,7 @@
                             </style>
                             <div class="tab-pane fade show" id="tab2">
                                 <div class="row jus">
-                                    <div class="col-3 col-md-4 col-sm-12">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
                                         <h4>Nama Perusahaan</h4>
                                         <p>Golet Digital Solusi</p>
                                     </div>
@@ -122,7 +124,7 @@
                                         <p>PT. (Perseroan Terbatas)
                                         </p>
                                     </div> --}}
-                                    <div class="col-3 col-md-4 col-sm-12">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
                                         <h4>Bidang Usaha</h4>
                                         <p>Penyedia Jasa Konsultasi dan Pengembangan IT</p>
                                     </div>
@@ -130,20 +132,20 @@
                                         <h4>Alamat Perusahaan</h4>
                                         <p>Jalan Albiso No. 36B RT 05 RW 06 Tritih Kulon Cilacap Utara Cilacap Jawa Tengah</p>
                                     </div> -->
-                                    <div class="col-3 col-md-4 col-sm-12">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
                                         <h4>NIB</h4>
                                         <p>0306220046979</p>
                                     </div>
-                                    <div class="col-3 col-md-4 col-sm-12">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
                                         <h4>NPWP</h4>
                                         <p>63.940.427.6-522.000</p>
                                     </div>
-                                    <div class="col-3 col-md-4 col-sm-12">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
                                         <h4>Akta Pendirian</h4>
                                         <p>Nomor 38, Tanggal 28 Maret 2022 (Notaris Tri Wahyuni Kristianti, S. H.)
                                         </p>
                                     </div>
-                                    <div class="col-3 col-md-4 col-sm-12">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
                                         <h4>Pengesahan Kemenhumham</h4>
                                         <p>NOMOR AHU-0023563.AH.01.01.TAHUN 202202 April 2022 </p>
                                     </div>
@@ -207,7 +209,7 @@
                                     <i class="ri-brush-4-line"></i>
                                     <div>
                                         <h4>Pelayanan</h4>
-                                        <p>Mengutamakan kepuasan client dengan memberikan pelayanan yang memuaskan</p>
+                                        <p>Mengutamakan kepuasan klien dengan memberikan pelayanan yang memuaskan</p>
                                     </div>
                                 </div>
 
@@ -231,7 +233,7 @@
                                     <i class="ri-radar-line"></i>
                                     <div>
                                         <h4>Implementasi</h4>
-                                        <p>Dukungan serta bimbingan penuh untuk merealisasikan dan menerapkan hasil development projek IT</p>
+                                        <p>Dukungan serta bimbingan penuh untuk merealisasikan dan menerapkan hasil pengembangan projek IT</p>
                                     </div>
                                 </div>
 
@@ -320,14 +322,14 @@
                                 <p>{{ $porto->nama_kategori }}</p>
                                 <div class="portfolio-links">
                                     <a href="{{ asset('') }}assets/gambar/{{ $porto->gambar1 }}" data-gallery="portfolioGallery" class="portfokio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
-                                    <a href="={{ $porto->slug }}" title="More Details"><i class="bi bi-link"></i></a>
+                                    <a href="-{{ $porto->slug }}" title="More Details"><i class="bi bi-link"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     @endforeach
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    {{-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                         <div class="portfolio-wrap">
                             <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
                             <div class="portfolio-info">
@@ -437,7 +439,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
 
@@ -455,7 +457,7 @@
 
                 <header class="section-header">
                     <h2>Team</h2>
-                    <p>Team Kami</p>
+                    <p>Tim Kami</p>
                 </header>
 
                 <div class="row gy-4">
@@ -492,7 +494,7 @@
                     </div>
                     @endforeach
 
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+                    {{-- <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                         <div class="member">
                             <div class="member-img">
                                 <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
@@ -547,7 +549,7 @@
                                 <p>Rerum voluptate non adipisci animi distinctio et deserunt amet voluptas. Quia aut aliquid doloremque ut possimus ipsum officia.</p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
 

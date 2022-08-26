@@ -17,7 +17,7 @@ class CreatePortofolioCategoriesTable extends Migration
             $table->id();
 
             $table->string('nama_kategori');
-            $table->string('deskripsi_kategori');
+            $table->longText('deskripsi_kategori');
             $table->string('img');
 
             $table->softDeletes();
